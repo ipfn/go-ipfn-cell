@@ -1,7 +1,7 @@
 # IPFN in-memory cell in Go
 
 [![IPFN project](https://img.shields.io/badge/project-IPFN-blue.svg?style=flat-square)](http://github.com/ipfn)
-[![GoDoc](https://godoc.org/github.com/ipfn/go-ipfn/cellmem?status.svg)](https://godoc.org/github.com/ipfn/go-ipfn/cellmem)
+[![GoDoc](https://godoc.org/github.com/ipfn/go-ipfn-cell/cellmem?status.svg)](https://godoc.org/github.com/ipfn/go-ipfn-cell/cellmem)
 
 Go implementation of in-memory [cell interface](https://github.com/ipfn/ipfn/tree/master/go/cell).
 

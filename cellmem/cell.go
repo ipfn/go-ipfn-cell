@@ -17,8 +17,8 @@ package cellmem
 import (
 	cid "github.com/ipfs/go-cid"
 
-	cell "github.com/ipfn/go-ipfn/cell"
-	cellcid "github.com/ipfn/go-ipfn/cellcid"
+	cell "github.com/ipfn/go-ipfn-cell/cell"
+	cellcid "github.com/ipfn/go-ipfn-cell/cellcid"
 )
 
 // Cell - In-memory cell.

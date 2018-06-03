@@ -20,8 +20,8 @@ import (
 
 	"github.com/gogo/protobuf/jsonpb"
 
-	cell "github.com/ipfn/go-ipfn/cell"
-	cellpb "github.com/ipfn/go-ipfn/cellpb"
+	cell "github.com/ipfn/go-ipfn-cell/cell"
+	cellpb "github.com/ipfn/go-ipfn-cell/cellpb"
 )
 
 // Codec - Protocol buffers cells codec.

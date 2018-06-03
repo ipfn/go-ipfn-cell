@@ -1,13 +1,13 @@
 # IPFN cell protocol buffers codec in Go
 
 [![IPFN project](https://img.shields.io/badge/project-IPFN-blue.svg?style=flat-square)](http://github.com/ipfn)
-[![GoDoc](https://godoc.org/github.com/ipfn/go-ipfn/cellpb?status.svg)](https://godoc.org/github.com/ipfn/go-ipfn/cellpb)
+[![GoDoc](https://godoc.org/github.com/ipfn/go-ipfn-cell/cellpb?status.svg)](https://godoc.org/github.com/ipfn/go-ipfn-cell/cellpb)
 
 Go implementation of IPFN cell protocol buffers codec.
 
 ## See also
 
-* [go-ipfn-cell-codecs](https://github.com/ipfn/go-ipfn/codecs)
+* [go-ipfn-cell-codecs](https://github.com/ipfn/go-ipfn-cell/codecs)
 
 ## License
 

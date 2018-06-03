@@ -7,8 +7,8 @@ Go implementation of IPFN cell codecs based on multicodec prefixes.
 
 ## Examples
 
-* [go-ipfn-cell-pb](https://github.com/ipfn/go-ipfn-cell/cellpb)
-* [go-ipfn-cell-json](https://github.com/ipfn/go-ipfn-cell/celljson)
+* [JSON](https://github.com/ipfn/go-ipfn-cell/tree/master/celljson)
+* [Protocol Buffers](https://github.com/ipfn/go-ipfn-cell/tree/master/cellpb)
 
 ## References
 

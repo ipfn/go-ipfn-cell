@@ -20,8 +20,8 @@ import (
 	cid "github.com/ipfs/go-cid"
 	multihash "github.com/multiformats/go-multihash"
 
-	cell "github.com/ipfn/go-ipfn/cell"
-	codecs "github.com/ipfn/go-ipfn/codecs"
+	cell "github.com/ipfn/go-ipfn-cell/cell"
+	codecs "github.com/ipfn/go-ipfn-cell/codecs"
 )
 
 // MhType - CID multihash type.
@@ -31,7 +31,7 @@ const MhType = multihash.SHA3_256
 // Multicodec ID of Protocol Buffers Cell Version 1. (28860)
 // Definition: /ipfs/QmeX5H9x2qNdGC1R5uhyX2HuG5izxR2SGi71jSWyEQjV6Q
 // Requires registered codec, current implementation:
-// https://github.com/ipfn/go-ipfn/cellpb
+// https://github.com/ipfn/go-ipfn-cell/cellpb
 const stdCodec = "/cell-pb"
 
 // CID - Creates CID from cell using standard codec.

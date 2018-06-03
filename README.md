@@ -10,7 +10,7 @@ Go implementation of IPFN core with command line tool and daemon.
 
 | Name | Description   | Documentation |
 |------|---------------|---------------|
-| [cells](http://github.com/ipfn/ipfn) | Cells & Codecs | [![GoDoc](https://godoc.org/github.com/ipfn/go-ipfn/cells?status.svg)](https://godoc.org/github.com/ipfn/go-ipfn/cells) |
+| [cells](http://github.com/ipfn/ipfn) | Cells & Codecs | [![GoDoc](https://godoc.org/github.com/ipfn/go-ipfn-cell/cells?status.svg)](https://godoc.org/github.com/ipfn/go-ipfn-cell/cells) |
 | [commands](http://github.com/ipfn/ipfn) | Console Commands | [![GoDoc](https://godoc.org/github.com/ipfn/go-ipfn/commands?status.svg)](https://godoc.org/github.com/ipfn/go-ipfn/commands) |
 | [identity](http://github.com/ipfn/ipfn) | Identity Utilities | [![GoDoc](https://godoc.org/github.com/ipfn/go-ipfn/identity?status.svg)](https://godoc.org/github.com/ipfn/go-ipfn/identity) |
 

@@ -1,7 +1,7 @@
 # IPFN cell interface in Go
 
 [![IPFN project](https://img.shields.io/badge/project-IPFN-blue.svg?style=flat-square)](http://github.com/ipfn)
-[![GoDoc](https://godoc.org/github.com/ipfn/go-ipfn/cell?status.svg)](https://godoc.org/github.com/ipfn/go-ipfn/cell)
+[![GoDoc](https://godoc.org/github.com/ipfn/go-ipfn-cell/cell?status.svg)](https://godoc.org/github.com/ipfn/go-ipfn-cell/cell)
 
 Go definition of an IPFN cell data structure interface.
 

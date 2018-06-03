@@ -17,8 +17,8 @@ package cellpb
 import (
 	proto "github.com/gogo/protobuf/proto"
 
-	cell "github.com/ipfn/go-ipfn/cell"
-	cellcid "github.com/ipfn/go-ipfn/cellcid"
+	cell "github.com/ipfn/go-ipfn-cell/cell"
+	cellcid "github.com/ipfn/go-ipfn-cell/cellcid"
 )
 
 // Encode - Encodes a cell.
