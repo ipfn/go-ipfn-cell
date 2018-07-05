@@ -19,7 +19,7 @@ import (
 	"math/big"
 
 	"github.com/gogo/protobuf/proto"
-	"github.com/rootchain/go-rootchain/cells"
+	"github.com/ipfn/go-ipfn-cells"
 )
 
 // BigInt - Creates new big int cell.

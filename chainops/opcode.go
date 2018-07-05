@@ -14,7 +14,7 @@
 
 package chainops
 
-import "github.com/rootchain/go-rootchain/cells"
+import "github.com/ipfn/go-ipfn-cells"
 
 const (
 	// OpOffset - Offset of chain operation code.

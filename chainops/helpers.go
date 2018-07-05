@@ -17,10 +17,10 @@ package chainops
 import (
 	"github.com/btcsuite/btcd/btcec"
 	base32check "github.com/ipfn/go-base32check"
+	"github.com/ipfn/go-ipfn-cells"
+	"github.com/ipfn/go-ipfn-cells/synaptic"
 	"github.com/ipfn/go-ipfn-keypair"
 	multihash "github.com/multiformats/go-multihash"
-	"github.com/rootchain/go-rootchain/cells"
-	"github.com/rootchain/go-rootchain/cells/synaptic"
 	"github.com/rootchain/go-rootchain/dev/address"
 )
 

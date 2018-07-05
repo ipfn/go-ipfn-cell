@@ -14,7 +14,7 @@
 
 package synaptic
 
-import "github.com/rootchain/go-rootchain/cells"
+import "github.com/ipfn/go-ipfn-cells"
 
 // OpOffset - Synaptic cells offset.
 const OpOffset cells.ID = 0x1c
