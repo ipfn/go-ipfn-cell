@@ -1,18 +1,9 @@
-# IPFN implementation in Go
+# IPFN Cells in Go
 
 [![IPFN project](https://img.shields.io/badge/project-IPFN-blue.svg?style=flat-square)](http://github.com/ipfn)
-[![GoDoc](https://godoc.org/github.com/ipfn/ipfn/go?status.svg)](https://godoc.org/github.com/ipfn/ipfn/go)
-[![Circle CI](https://img.shields.io/circleci/project/ipfn/go-ipfn.svg)](https://circleci.com/gh/ipfn/ipfn)
+[![GoDoc](https://godoc.org/github.com/ipfn/go-ipfn-cells?status.svg)](https://godoc.org/github.com/ipfn/go-ipfn-cells)
 
-Go implementation of IPFN core with command line tool and daemon.
-
-## Packages
-
-| Name | Description   | Documentation |
-|------|---------------|---------------|
-| [cells](http://github.com/ipfn/ipfn) | Cells & Codecs | [![GoDoc](https://godoc.org/github.com/ipfn/go-ipfn-cell/cells?status.svg)](https://godoc.org/github.com/ipfn/go-ipfn-cell/cells) |
-| [commands](http://github.com/ipfn/ipfn) | Console Commands | [![GoDoc](https://godoc.org/github.com/ipfn/go-ipfn/commands?status.svg)](https://godoc.org/github.com/ipfn/go-ipfn/commands) |
-| [identity](http://github.com/ipfn/ipfn) | Identity Utilities | [![GoDoc](https://godoc.org/github.com/ipfn/go-ipfn/identity?status.svg)](https://godoc.org/github.com/ipfn/go-ipfn/identity) |
+Go interface and implementation of IPFN cells.
 
 ## License
 
