@@ -45,19 +45,16 @@ func NewChildrenPrinter(cell Cell) (res []*CellPrinter) {
 
 // MarshalJSON - Marshals cell as JSON.
 func (p *CellPrinter) MarshalJSON() (_ []byte, err error) {
-	return prettyPrint(p.Cell), nil
-}
-
-// String - Prints to string.
-func (p *CellPrinter) String() string {
-	return string(prettyPrint(p.Cell))
+	buff := bytes.NewBuffer(nil)
+	buff.WriteByte('"')
+	writeStringScript(p.Cell, buff)
+	buff.WriteByte('"')
+	return buff.Bytes(), nil
 }
 
 func prettyPrint(cell Cell) (_ []byte) {
 	buff := bytes.NewBuffer(nil)
-	buff.WriteByte('"')
 	writeStringScript(cell, buff)
-	buff.WriteByte('"')
 	return buff.Bytes()
 }
 
@@ -81,12 +78,14 @@ func writeStringScript(cell Cell, buff *bytes.Buffer) {
 func writePrettyMemory(cell Cell, buff *bytes.Buffer) {
 	buff.WriteByte(' ')
 	switch cell.OpCode() {
-	case 31, 62, 75: // uint64 or id or nonce
+	case 31, 62, 65: // uint64 or id or nonce
 		i, _ := proto.DecodeVarint(cell.Memory())
 		buff.WriteString(fmt.Sprintf("%d", i))
 	case 63, 70: // cid or pubkey addr
 		c, _ := cid.Cast(cell.Memory())
 		buff.WriteString(c.String())
+	case 33: // string
+		buff.Write(cell.Memory())
 	default:
 		buff.WriteString(fmt.Sprintf("0x%x", cell.Memory()))
 	}
