@@ -18,7 +18,6 @@ import (
 	cid "gx/ipfs/QmapdYm1b22Frv3k17fqrBYTFRxwiaVJkB299Mfn33edeB/go-cid"
 
 	multihash "github.com/multiformats/go-multihash"
-	"github.com/rootchain/go-rootchain/dev/cids"
 )
 
 // TODO - Returns empty cell.
@@ -60,7 +59,7 @@ func UnmarshalBinary(body []byte) (c *BinaryCell, err error) {
 // CellPrefix - Binary cell CID prefix.
 var CellPrefix = cid.Prefix{
 	Version:  1,
-	Codec:    cids.BinaryCell,
+	Codec:    0x70bc,
 	MhType:   multihash.KECCAK_256,
 	MhLength: 32,
 }
