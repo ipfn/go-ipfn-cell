@@ -16,6 +16,7 @@ package cells
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // Cell - Operation cell interface.
@@ -34,14 +35,19 @@ type Cell interface {
 
 	// ChildrenSize - Amount of children.
 	ChildrenSize() int
+
+	// Marshal - Marshals cell.
+	Marshal() ([]byte, error)
+
+	fmt.Stringer
 }
 
 // MutableCell - Mutable cell interface.
 type MutableCell interface {
 	Cell
 
-	// AddChild - Adds children.
-	AddChild(Cell)
+	// AddChildren - Adds children.
+	AddChildren(...Cell)
 
 	// SetOpCode - Sets operation ID.
 	SetOpCode(ID)
@@ -68,7 +74,7 @@ func (cell *BinaryCell) CID() (_ *CID) {
 	if cell.cid != nil {
 		return cell.cid
 	}
-	body, err := Marshal(cell)
+	body, err := cell.Marshal()
 	if err != nil {
 		panic(err)
 	}
@@ -102,9 +108,9 @@ func (cell *BinaryCell) ChildrenSize() int {
 	return len(cell.children)
 }
 
-// AddChild - Appends new children operation.
-func (cell *BinaryCell) AddChild(child Cell) {
-	cell.children = append(cell.children, child)
+// AddChildren - Appends new children operation.
+func (cell *BinaryCell) AddChildren(children ...Cell) {
+	cell.children = append(cell.children, children...)
 	cell.reset()
 }
 
@@ -129,6 +135,16 @@ func (cell *BinaryCell) SetChildren(children []Cell) {
 // Checksum - Computes marshalled xxhash64 of cell content id.
 func (cell *BinaryCell) Checksum() (_ ID, err error) {
 	return NewID(cell.CID().Bytes()), nil
+}
+
+// String - Prints to string.
+func (cell *BinaryCell) String() string {
+	return string(prettyPrint(cell))
+}
+
+// Marshal - Marshals cell.
+func (cell *BinaryCell) Marshal() (_ []byte, err error) {
+	return Marshal(cell)
 }
 
 // MarshalJSON - Marshals cell as JSON.
