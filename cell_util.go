@@ -50,8 +50,8 @@ func New(op ID, memory []byte, children ...Cell) *BinaryCell {
 	}
 }
 
-// UnmarshalCell - Unmarshals new binary cell.
-func UnmarshalCell(body []byte) (c *BinaryCell, err error) {
+// UnmarshalBinary - Unmarshals new binary cell.
+func UnmarshalBinary(body []byte) (c *BinaryCell, err error) {
 	c = new(BinaryCell)
 	err = Unmarshal(c, body)
 	return
