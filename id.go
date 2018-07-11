@@ -81,7 +81,6 @@ func (id ID) String() string {
 	return fmt.Sprintf("%s", name)
 }
 
-// TODO(crackcomm)
 // MarshalJSON - Marshals ID as JSON string.
 func (id ID) MarshalJSON() (_ []byte, err error) {
 	name, ok := registry[id]

@@ -61,9 +61,9 @@ type MutableCell interface {
 
 // BinaryCell - Binary representation of cell.
 type BinaryCell struct {
-	opCode   ID     `json:"op,omitempty"`
-	memory   []byte `json:"value,omitempty"`
-	children []Cell `json:"ops,omitempty"`
+	opCode   ID
+	memory   []byte
+	children []Cell
 
 	cid  *CID
 	body []byte
