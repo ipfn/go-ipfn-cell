@@ -39,9 +39,18 @@ func WrapCID(c *cid.Cid) *CID {
 	return &CID{Cid: c}
 }
 
-// DecodeCID - Parses CID.
+// DecodeCID - Decodes CID.
 func DecodeCID(v string) (_ *CID, err error) {
 	c, err := cid.Decode(v)
+	if err != nil {
+		return
+	}
+	return &CID{Cid: c}, nil
+}
+
+// ParseCID - Parses CID.
+func ParseCID(v interface{}) (_ *CID, err error) {
+	c, err := cid.Parse(v)
 	if err != nil {
 		return
 	}
