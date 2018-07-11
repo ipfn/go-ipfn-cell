@@ -15,6 +15,7 @@
 package cells
 
 import (
+	"encoding/hex"
 	"encoding/json"
 	"fmt"
 	"math"
@@ -22,8 +23,38 @@ import (
 	"github.com/gogo/protobuf/proto"
 )
 
+// ToHex - Encodes binary cell to hex.
+func ToHex(cell Cell) (body []byte, err error) {
+	src, err := Marshal(cell)
+	if err != nil {
+		return
+	}
+	body = make([]byte, hex.EncodedLen(len(src)))
+	hex.Encode(body, src)
+	return
+}
+
+// FromHex - Decodes cell from hex encoded binary cell.
+func FromHex(src []byte) (_ Cell, err error) {
+	n, err := hex.Decode(src, src)
+	if err != nil {
+		return
+	}
+	cell := new(BinaryCell)
+	err = Unmarshal(cell, src[:n])
+	if err != nil {
+		return
+	}
+	return cell, nil
+}
+
+// FromHexString - Decodes cell from hex encoded binary cell.
+func FromHexString(src string) (_ Cell, err error) {
+	return FromHex([]byte(src))
+}
+
 // MarshalJSON - Marshals cell as JSON.
-func MarshalJSON(cell *BinaryCell) (_ []byte, err error) {
+func MarshalJSON(cell Cell) (_ []byte, err error) {
 	type jsonCell struct {
 		OpCode   ID             `json:"op,omitempty"`
 		Memory   []byte         `json:"value,omitempty"`
