@@ -17,12 +17,24 @@ package cells
 import (
 	"fmt"
 
+	mh "gx/ipfs/QmPnFwZ2JXKnXgMw8CdBPxn7FWh6LLdjUjxV1fKHuJnkr8/go-multihash"
 	cid "gx/ipfs/QmapdYm1b22Frv3k17fqrBYTFRxwiaVJkB299Mfn33edeB/go-cid"
 )
 
 // CID - Content ID wrapper.
 type CID struct {
 	*cid.Cid
+}
+
+// NewCID - Creates new wrapped content ID v1 for codec and hash.
+func NewCID(codecType uint64, mhash mh.Multihash) *CID {
+	return &CID{Cid: cid.NewCidV1(codecType, mhash)}
+}
+
+// NewCIDFromHash - Creates new wrapped content ID v1 for codec and hash.
+func NewCIDFromHash(codecType uint64, hash []byte, hashType uint64) *CID {
+	mhash, _ := mh.Encode(hash, mh.KECCAK_256)
+	return NewCID(cid.EthStateTrie, mhash)
 }
 
 // SumCID - Sums content id and wraps.
