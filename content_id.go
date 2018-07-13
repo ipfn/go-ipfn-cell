@@ -57,6 +57,12 @@ func ParseCID(v interface{}) (_ *CID, err error) {
 	return &CID{Cid: c}, nil
 }
 
+// Digest - Returns 32 bytes of hash.
+func (c *CID) Digest() []byte {
+	h := c.Hash()
+	return h[len(h)-32:]
+}
+
 // UnmarshalJSON - Parses the JSON string representation of a cid.
 func (c *CID) UnmarshalJSON(b []byte) (err error) {
 	if len(b) < 2 {
