@@ -14,12 +14,6 @@
 
 package cells
 
-import (
-	cid "gx/ipfs/QmapdYm1b22Frv3k17fqrBYTFRxwiaVJkB299Mfn33edeB/go-cid"
-
-	multihash "github.com/multiformats/go-multihash"
-)
-
 // TODO - Returns empty cell.
 func TODO() *BinaryCell {
 	return new(BinaryCell)
@@ -54,12 +48,4 @@ func UnmarshalBinary(body []byte) (c *BinaryCell, err error) {
 	c = new(BinaryCell)
 	err = Unmarshal(c, body)
 	return
-}
-
-// CellPrefix - Binary cell CID prefix.
-var CellPrefix = cid.Prefix{
-	Version:  1,
-	Codec:    0x70bc,
-	MhType:   multihash.KECCAK_256,
-	MhLength: 32,
 }

@@ -20,7 +20,8 @@ import (
 
 	"github.com/cespare/xxhash"
 	"github.com/gogo/protobuf/proto"
-	"github.com/ipfn/go-base32check"
+
+	"github.com/ipfn/go-base32i/base32i"
 )
 
 // ID - Cell of an ID registered on-chain.
@@ -48,7 +49,7 @@ func ParseID(body string) (_ ID, err error) {
 	}
 	// remove 'b' byte
 	body = body[1:]
-	s, err := base32check.CheckDecodeString(body)
+	s, err := base32i.CheckDecodeString(body)
 	if err != nil {
 		return
 	}
@@ -68,7 +69,7 @@ func (id ID) Bytes() []byte {
 
 // Encode - Returns cell ID in base32 format.
 func (id ID) Encode() string {
-	body := base32check.CheckEncode(id.Bytes())
+	body := base32i.CheckEncode(id.Bytes())
 	return string(append([]byte{'b'}, body...))
 }
 

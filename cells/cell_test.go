@@ -37,22 +37,24 @@ var (
 )
 
 func TestBinaryCell(t *T) {
+	t.Parallel()
+
 	b, err := Marshal(simpleCell)
-	assert.Equal(t, nil, err)
+	assert.NoError(t, err)
 	de := new(BinaryCell)
 	err = Unmarshal(de, b)
-	assert.Equal(t, nil, err)
+	assert.NoError(t, err)
 	b2, _ := Marshal(de)
 	assert.Equal(t, b, b2)
 	assert.Equal(t, simpleCell.OpCode(), de.OpCode())
 
 	id, err := de.Checksum()
-	assert.Equal(t, nil, err)
-	assert.Equal(t, ID(0x1663e9dbd3c404b2), id)
+	assert.NoError(t, err)
+	assert.Equal(t, ID(0xb89a2f9596685985), id)
 
 	cid := de.CID()
-	assert.Equal(t, nil, err)
-	assert.Equal(t, "zFuncm69CFEp3YTS4vgNGpXJHUKZVgo6Qzr6syTNjZrrKFugu4K1", cid.String())
+	assert.NoError(t, err)
+	assert.Equal(t, "zFuncktLhQmWU8P24RYpuMGWgY5RVX9QpTcKmfGf2TdDQiaxF1aA", cid.String())
 
 	jb1, _ := json.Marshal(simpleCell)
 	jb2, _ := json.Marshal(de)
@@ -60,6 +62,8 @@ func TestBinaryCell(t *T) {
 }
 
 func TestBinaryCell_Size(t *T) {
+	t.Parallel()
+
 	c := Op(0x1b1,
 		New(0x1b2, proto.EncodeVarint(xxhash.Sum64String("acc1"))),
 		New(0x1b3, proto.EncodeVarint(1e6)),
@@ -75,6 +79,8 @@ func TestBinaryCell_Size(t *T) {
 }
 
 func TestBinaryCell_Size2(t *T) {
+	t.Parallel()
+
 	c := Root(Ops(Op(1), Op(1), Op(1), Op(1)))
 	b, _ := Marshal(c)
 	assert.Equal(t, 15, len(b))

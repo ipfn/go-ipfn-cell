@@ -17,26 +17,30 @@ package cells
 import (
 	. "testing"
 
-	"github.com/stretchr/testify/assert"
+	cid "gx/ipfs/QmR8BauakNcBa3RbE4nbQu76PDiJgoQgz8AJdhJuiU4TAw/go-cid"
+	mh "gx/ipfs/QmerPMzPk1mJVowm8KgmoknWa4yCYvvugMPsgWmDNUvDLW/go-multihash"
 )
 
-func TestComputeID(t *T) {
-	id, err := cidCell.Checksum()
-	assert.Equal(t, nil, err)
-	assert.Equal(t, ID(0x13fb93194e573bd2), id)
+func BenchmarkCidBytes_V0(b *B) {
+	c, _ := SumCID(cid.Prefix{
+		Version:  0,
+		Codec:    8438,
+		MhType:   mh.KECCAK_256,
+		MhLength: 32,
+	}, []byte("test"))
+	for i := 0; i < b.N; i++ {
+		_ = c.Bytes()
+	}
 }
 
-func TestParseID(t *T) {
-	var (
-		nID = ID(216547582402989)
-		src = "b4hp7dnrwncce5"
-		num = "216547582402989"
-	)
-
-	assert.Equal(t, num, nID.String())
-	assert.Equal(t, src, nID.Encode())
-
-	id, err := ParseID(src)
-	assert.Equal(t, nil, err)
-	assert.Equal(t, nID, id)
+func BenchmarkCidBytes_V1(b *B) {
+	c, _ := SumCID(cid.Prefix{
+		Version:  1,
+		Codec:    8438,
+		MhType:   mh.KECCAK_256,
+		MhLength: 32,
+	}, []byte("test"))
+	for i := 0; i < b.N; i++ {
+		_ = c.Bytes()
+	}
 }
